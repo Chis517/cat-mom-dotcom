@@ -21,8 +21,10 @@
     "cataas-api": "^1.1.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "handlebars": "^4.7.7",
     "materialize-css": "^1.0.0-rc.2",
     "mysql2": "^2.3.3",
-    "sequelize": "^7.0.0-alpha.4"
+    "sequelize": "^7.0.0-alpha.4",
+    "session": "^0.1.0"
   }
 }
