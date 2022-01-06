@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/Chis517/cat-mom-dotcom#readme",
   "dependencies": {
+    "cataas-api": "^1.1.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "materialize-css": "^1.0.0-rc.2",
     "mysql2": "^2.3.3",
     "sequelize": "^7.0.0-alpha.4"
   }
