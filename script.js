@@ -19,7 +19,7 @@ let catBreedUrl = "https://api.thecatapi.com/v1/breeds?limit=10&page=0";
 // }
 
 
- 
+
 
 
 
@@ -46,14 +46,30 @@ function returnCatBreed() {
     }
 
     fetch(catBreedUrl + catBreedApi)
-    .then(response => response.json())
-    .then(function(data){
-    console.log(data);
+    .then(function(response) {
+        return response.json();
+      })
+      .then(function(response) {
+        console.log(response[0].image.url);
      // calling the display function 
+    
+     var responseContainerEl = document.querySelector('#catPic');
 
+     responseContainerEl.innerHTML = '';
+
+     var catImg = document.createElement('img');
+      catImg.setAttribute('src', response[0].image.url);
+
+      // Append 'catImg' to the <div>
+      responseContainerEl.appendChild(catImg);
    })
 
-   
+   [0].image.url
+
+
+
+
+
 
 // var Cataas = require('cataas-api')
 // var cataas = new Cataas()
