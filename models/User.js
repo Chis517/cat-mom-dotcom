@@ -12,7 +12,7 @@ const sequelize = new Sequelize('ourDatabase', 'root', 'password', {
         acquire: 30000,
         idle: 10000
     },
-    operatorsAliases: false
+    operatorsAliases: 0
 });
 
 // set up User Table and fields

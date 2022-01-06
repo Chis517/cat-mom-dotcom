@@ -1,37 +1,59 @@
 let catGifApiKey = "VXnSXclVjuSvQqVLtihJCbZ8Fz66qAOhMc4pyYy0";
 let catGifUrl = "http://cataas.com/#/cat/gif";
 let catBreedApi = "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244";
-let catBreedUrl = "https://api.thecatapi.com/";
+let catBreedUrl = "https://api.thecatapi.com/v1/breeds?limit=10&page=0";
 
 // return cat pictures from cat gif api 
 
-function returnCatGif() {
-    fetch(catUrl + catApiKey)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (response) {
-            var catPic = document.getElementById("catPic");
-            var catGif = document.createElement('img');
-            catGif.setAttribute('src', response.data.image_url);
-            catPic.appendChild(catGif);
-        })
-}
+// function returnCatGif() {
+//     fetch(catUrl + catApiKey)
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (response) {
+//             var catPic = document.getElementById("catPic");
+//             var catGif = document.createElement('img');
+//             catGif.setAttribute('src', response.data.image_url);
+//             catPic.appendChild(catGif);
+//         })
+// }
+
+
+ 
+
+
+
 
 
 //return cat breed from second api key
+// function returnCatBreed() {
+//     var breedSearch = document.querySelector("breedSearch").value;
+
+//     fetch(
+//         catBreedUrl + breedSearch + catBreedApi)
+//         .then(function (response) {
+//             return response.json();
+//         })
+// }
+
+
 function returnCatBreed() {
-    var breedSearch = document.querySelector("breedSearch").value;
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("x-api-key", "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244");
+    
+    
+    }
 
-    fetch(
-        catBreedUrl + breedSearch + catBreedApi)
-        .then(function (response) {
-            return response.json();
-        })
-}
+    fetch(catBreedUrl + catBreedApi)
+    .then(response => response.json())
+    .then(function(data){
+    console.log(data);
+     // calling the display function 
 
+   })
 
-
+   
 
 // var Cataas = require('cataas-api')
 // var cataas = new Cataas()
