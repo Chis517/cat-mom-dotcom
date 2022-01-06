@@ -1,6 +1,7 @@
 var Sequelize = require('sequelize');
 var bcrypt = require('bcrypt');
 
+
 const sequelize = new Sequelize('ourDatabase', 'root', 'password', {
     host: 'localhost',
     port: 3306,

@@ -10,7 +10,7 @@ var path = require('path');
 var app = express();
 
 // sets the port
-app.set('port', 3000);
+const PORT = process.env.PORT || 3306;
 
 // set morgan to log info about requests for dev use
 app.use(morgan('dev'));
@@ -34,7 +34,7 @@ app.use(session({
 
 // handlebars config.
 // Using the handlebars app (hbs) we want a default layout - located in view/layouts/
-app.engine('hbs', hbs({extname: 'hbs',defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'})); 
+app.engine('handlebars', hbs.engine({extname: 'hbs',defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'})); 
 app.set('view engine', 'hbs');
 
 // This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
@@ -45,3 +45,7 @@ app.use((req, res, next) => {
     }
     next();
 });
+
+
+app.listen(PORT, () => console.log('Now listening'));
+ 
