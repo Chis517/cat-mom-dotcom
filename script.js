@@ -1,13 +1,13 @@
 let catGifApiKey = "VXnSXclVjuSvQqVLtihJCbZ8Fz66qAOhMc4pyYy0";
 let catGifUrl = "https://cataas.com/cat#/cat/gif";
 let catBreedApi = "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244";
-let catBreedUrl = "https://api.thecatapi.com/v1/breeds?limit=10&page=0";
+let catBreedUrl = "https://api.thecatapi.com/v1/images/search?limit=5&page=10&order=Desc";
 
 // return cat pictures from cat gif api 
 
 function returnCatGif() {
     var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "image/jpeg");
+    myHeaders.append("Content-Type", "image/gif");
     myHeaders.append("Authorization", "VXnSXclVjuSvQqVLtihJCbZ8Fz66qAOhMc4pyYy0");
 }
 
@@ -69,10 +69,11 @@ function returnCatBreed() {
             
             var responseContainerEl = document.querySelector('#catPic');
             responseContainerEl.innerHTML = '';
+            
     
             var catImg = document.createElement('img');
             catImg.setAttribute("style","width:200px; hight:200px; ");
-            catImg.setAttribute('src', response[0].image.url);
+            catImg.setAttribute('src', response[0].url);
     
         //   Append 'catImg' to the <div>
           responseContainerEl.appendChild(catImg);
