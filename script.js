@@ -1,26 +1,38 @@
 let catGifApiKey = "VXnSXclVjuSvQqVLtihJCbZ8Fz66qAOhMc4pyYy0";
-let catGifUrl = "http://cataas.com/#/cat/gif";
+let catGifUrl = "https://cataas.com/cat#/cat/gif";
 let catBreedApi = "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244";
 let catBreedUrl = "https://api.thecatapi.com/v1/breeds?limit=10&page=0";
 
 // return cat pictures from cat gif api 
 
-// function returnCatGif() {
-//     fetch(catUrl + catApiKey)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (response) {
-//             var catPic = document.getElementById("catPic");
-//             var catGif = document.createElement('img');
-//             catGif.setAttribute('src', response.data.image_url);
-//             catPic.appendChild(catGif);
-//         })
-// }
+function returnCatGif() {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "image/jpeg");
+    myHeaders.append("Authorization", "VXnSXclVjuSvQqVLtihJCbZ8Fz66qAOhMc4pyYy0");
+}
 
+    fetch(catGifUrl + catGifApiKey)
+    .then(function(image) {
+        return image;
+      })
+      .then(function(image) {
+        console.log(image);
+        
+    //         {
+                
+    //             var responseContainerEl = document.querySelector('#catGif');
+    //             responseContainerEl.innerHTML = '';
+        
+    //             var catGif = document.createElement('img');
+    //             catGif.setAttribute("style","width:200px; hight:200px; ");
+    //             catGif.setAttribute('src', image);
+        
+    //         //   Append 'catImg' to the <div>
+    //           responseContainerEl.appendChild(catGif);
+        
+    // }
 
-
-
+    })
 
 
 
@@ -50,25 +62,25 @@ function returnCatBreed() {
         return response.json();
       })
       .then(function(response) {
-        console.log(response[0].image.url);
-     // calling the display function 
+        console.log(response);
+
+    for (var i = 0; i < response.length; i++) {
+        {
+            
+            var responseContainerEl = document.querySelector('#catPic');
+            responseContainerEl.innerHTML = '';
     
-     var responseContainerEl = document.querySelector('#catPic');
+            var catImg = document.createElement('img');
+            catImg.setAttribute("style","width:200px; hight:200px; ");
+            catImg.setAttribute('src', response[0].image.url);
+    
+        //   Append 'catImg' to the <div>
+          responseContainerEl.appendChild(catImg);
+   }
+}
+      })
 
-     responseContainerEl.innerHTML = '';
-
-     var catImg = document.createElement('img');
-      catImg.setAttribute('src', response[0].image.url);
-
-      // Append 'catImg' to the <div>
-      responseContainerEl.appendChild(catImg);
-   })
-
-   [0].image.url
-
-
-
-
+      returnCatBreed(); 
 
 
 // var Cataas = require('cataas-api')
