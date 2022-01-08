@@ -34,10 +34,27 @@ for (var i = 0; i < response.length; i++) {
 }
   })
 
-  returnCatBreed(); 
 
+function returnBreedGif() {
 
+  var gifByBreed = data[i].id
+  var breedUrl = "https://api.thecatapi.com/v1/images/search?breed_id=" + gifByBreed;
 
+  fetch(breedUrl)
+  .then(function(response){
+if (response.ok){
+  return response.json()
+
+  .then(function(data) {
+    console.log(data);
+  })
+}
+else {
+  alert("fetch error");
+}
+  }
+  
+  )}
 
 
 function returnCatBreed() {
@@ -45,6 +62,7 @@ function returnCatBreed() {
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("x-api-key", "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244");
 }
+
 
 // return breed information from catApi
 fetch(catBreedUrl + catBreedApi)
@@ -55,13 +73,22 @@ fetch(catBreedUrl + catBreedApi)
   .then(function (data) {
     console.log(data);
 
+
     // get list of names from api and append it to the search bar
     for (var i = 0; i < data.length; i++) {
       let breedName = document.createElement("option");
+      breedName.setAttribute("id", data[i].name);
       breedName.textContent = data[i].name;
       breedList.appendChild(breedName);
       console.log(breedName);
+
+      breedName.addEventListener("click", function(event){
+        returnCatGif(event.target.id);
+
+        console.log(event);
+      })
     }
+
   });
 
 //     breedName.forEach(function (name) {
@@ -89,10 +116,33 @@ fetch(catBreedUrl + catBreedApi)
       responseContainerEl.innerHTML = "";
 
       var catImg = document.createElement("img");
-      catImg.setAttribute("style", "width:200px; hight:200px; ");
+      catImg.setAttribute("style", "width:200px; hight:200px;");
       catImg.setAttribute("src", response[0].image.url);
 
       //   Append 'catImg' to the <div>
       responseContainerEl.appendChild(catImg);
-    }
+    
+
+  }
+
+
   });
+
+
+  //results based on breed
+
+  function breedResults() {
+    const pet = document.querySelectorAll('#breed-list');
+    let selectedValue;
+    for (const type of cat){
+      if (type.select){
+        selectedValue = type.value;
+        break;
+      }
+  }
+
+if (selectedValue === "breed-list"){
+  return 
+}
+console.log(selectedValue);
+} 
