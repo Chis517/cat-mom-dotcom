@@ -25,7 +25,7 @@ for (var i = 0; i < response.length; i++) {
         responseContainerEl.innerHTML = '';
 
         var catImg = document.createElement('img');
-        catImg.setAttribute("style","width:200px; hight:200px; ");
+        catImg.setAttribute("style","width:450px; hight:450px; ");
         catImg.setAttribute('src', response[i].url);
 
     //   Append 'catImg' to the <div>
