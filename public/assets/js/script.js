@@ -3,7 +3,7 @@ let catGifUrl = "https://cataas.com/cat/gif";
 let catBreedApi = "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244";
 let catBreedUrl = "https://api.thecatapi.com/v1/breeds?";
 let breedList = document.getElementById("breed-list");
-
+let breedName = document.createElement("option");
 
 // return cat pictures from cat gif api 
 
