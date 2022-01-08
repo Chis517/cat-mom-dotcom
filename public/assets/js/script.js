@@ -42,24 +42,33 @@ function returnCatBreed() {
 
 
 }
+
 // return breed information from catApi 
 fetch(catBreedUrl + catBreedApi)
     .then(function (response) {
         return response.json();
     })
-    
+
     .then(function (data) {
         console.log(data);
 
-        let breedName = data.name;
+        // get list of names from api and append it to the search bar
+      for (var i = 0; i < data.length; i++) {
+        let breedName = data[i].name;
         console.log(breedName);
-        // let breedImage = data.image;
+      }  
+     
+
     })
+
+
+
 
     .then(function (data) {
         console.log(data);
         for (var i = 0; i < response.length; i++) {
-            // get list of names from api and append it to the search bar
+                    // let breedImage = data.image;
+            
 
             // breedName.map(function (name) {
 
