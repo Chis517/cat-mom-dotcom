@@ -134,13 +134,13 @@ fetch(catBreedUrl + catBreedApi)
   function breedResults() {
     var selectedValue = document.getElementById("breed-list").value;
     var firstFour = selectedValue.substring(0, 4)
-    if (firstFour == "Amer") {
-      return selectedValue.substring(1);
+    if (firstFour === "Amer") {
+      return selectedValue.substring(8, 4);
+      
     }
     console.log(firstFour);
-
     
-  
+    
 
     var requestOptions = {
       method: 'GET',
