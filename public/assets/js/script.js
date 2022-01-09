@@ -25,8 +25,10 @@ fetch(catBreedUrl + catBreedApi)
             breedNameEl.textContent = data[i].name;
             breedList.appendChild(breedNameEl);
 
-            var breedName = breedNameEl.textContent;
-            console.log(breedName);
+            var breedNames = breedNameEl.textContent;
+            console.log(breedNames);
+
+            
             
             breedList.addEventListener('change', (event) => {
                 console.log('change');
