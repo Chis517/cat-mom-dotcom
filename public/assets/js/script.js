@@ -35,26 +35,26 @@ for (var i = 0; i < response.length; i++) {
   })
 
 
-function returnBreedGif() {
+// function returnBreedGif() {
 
-  var gifByBreed = data[i].id
-  var breedUrl = "https://api.thecatapi.com/v1/images/search?breed_id=" + gifByBreed;
+//   var gifByBreed = data[i].id
+//   var breedUrl = "https://api.thecatapi.com/v1/images/search?breed_id=" + gifByBreed;
 
-  fetch(breedUrl)
-  .then(function(response){
-if (response.ok){
-  return response.json()
+//   fetch(breedUrl)
+//   .then(function(response){
+// if (response.ok){
+//   return response.json()
 
-  .then(function(data) {
-    console.log(data);
-  })
-}
-else {
-  alert("fetch error");
-}
-  }
+//   .then(function(data) {
+//     console.log(data);
+//   })
+// }
+// else {
+//   alert("fetch error");
+// }
+//   }
   
-  )}
+//   )}
 
 
 function returnCatBreed() {
@@ -132,17 +132,25 @@ fetch(catBreedUrl + catBreedApi)
   //results based on breed
 
   function breedResults() {
-    const pet = document.querySelectorAll('#breed-list');
-    let selectedValue;
-    for (const type of cat){
-      if (type.select){
-        selectedValue = type.value;
-        break;
-      }
+    var selectedValue = document.getElementById("breed-list").value;
+    var firstFour = selectedValue.substring(0, 4)
+    if (firstFour == "Amer") {
+      return selectedValue.substring(1);
+    }
+    console.log(firstFour);
+
+    
+  
+
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    
+    fetch("https://api.thecatapi.com/v1/breeds/" + firstFour, requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
   }
 
-if (selectedValue === "breed-list"){
-  return 
-}
-console.log(selectedValue);
-} 
+  
