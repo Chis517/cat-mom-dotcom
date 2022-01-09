@@ -91,26 +91,6 @@ fetch(catBreedUrl + catBreedApi)
 
   });
 
-    // .then(function (data) {
-    //     console.log(data);
-
-    //     // get list of names from api and append it to the search bar
-    //     for (var i = 0; i < data.length; i++) {
-    //         let breedNameEl = document.createElement("option");
-    //         breedNameEl.textContent = data[i].name;
-    //         breedList.appendChild(breedNameEl);
-
-    //         var breedNames = breedNameEl.textContent;
-    //         console.log(breedNames);
-
-            
-            
-    //         breedList.addEventListener('change', (event) => {
-    //             console.log('change');
-    //         })
-    //     }
-    // })
-
 fetch(catBreedUrl + catBreedApi)
   .then(function (response) {
     return response.json();
