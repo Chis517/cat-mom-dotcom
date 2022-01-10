@@ -77,7 +77,7 @@ fetch(catBreedUrl + catBreedApi)
     // get list of names from api and append it to the search bar
     for (var i = 0; i < data.length; i++) {
       let breedName = document.createElement("option");
-      breedName.setAttribute("id", data[i].name);
+      breedName.setAttribute("id", [i]);
       breedName.textContent = data[i].name;
       breedList.appendChild(breedName);
       console.log(breedName);
