@@ -119,14 +119,14 @@ fetch(catBreedUrl + catBreedApi)
 //             responseContainerEl.appendChild(catImg);
 
 
-      
+
 //results based on breed
 
 function breedResults() {
     var selectedValue = document.getElementById("breed-list").value;
     console.log(selectedValue);
 
-        fetch(catBreedUrl + catBreedApi)
+    fetch(catBreedUrl + catBreedApi)
         .then(function (response) {
             return response.json();
         })
@@ -184,16 +184,43 @@ function breedResults() {
 
 }
 
+
 var myHeaders = new Headers();
 myHeaders.append("Accept", "application/json");
 
+
 var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
 };
 
 fetch("https://catfact.ninja/fact?limit=1&max_length=140", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+    .then(response => response.text())
+    .then(result => {
+            console.log(result);
+            showResult = result => {
+            let catFactContainer = document.querySelector('#cat-fact');
+             let catFact = document.createElement('p');
+             catFact.textContent = result;
+             catFactContainer.appendChild(catFact);
+    } 
+    showResult(result);
+}
+    )
+// showFact = fact => {
+//     let catFactContainer = document.querySelector('#cat-fact');
+//     fact.forEach(fact => {
+//         let catFact = document.createElement('p');
+//         catFact.innerText = '${fact}';
+//         catFactContainer.appendChild(catFact);
+//     }
+//     )
+// }
+
+            // var catFactContainer = document.querySelector('#cat-fact');
+            // catFactContainer.textContent = result;
+            // var catFact = document.createElement('div');
+            // catFactContainer.appendChild(catFact);
+
+
