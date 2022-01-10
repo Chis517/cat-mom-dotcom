@@ -206,21 +206,7 @@ fetch("https://catfact.ninja/fact?limit=1&max_length=140", requestOptions)
              catFactContainer.appendChild(catFact);
     } 
     showResult(result);
-}
-    )
-// showFact = fact => {
-//     let catFactContainer = document.querySelector('#cat-fact');
-//     fact.forEach(fact => {
-//         let catFact = document.createElement('p');
-//         catFact.innerText = '${fact}';
-//         catFactContainer.appendChild(catFact);
-//     }
-//     )
-// }
+})
 
-            // var catFactContainer = document.querySelector('#cat-fact');
-            // catFactContainer.textContent = result;
-            // var catFact = document.createElement('div');
-            // catFactContainer.appendChild(catFact);
 
 
