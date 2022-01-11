@@ -183,6 +183,10 @@ function breedResults() {
         console.log(data);
         showResult = data => {
 
+      let catCard = document.createElement("div");
+      catCard.className = "tile is-parent"
+     
+
       let catName = document.createElement("p");
       catName.innerHTML = data.name;
       let catInfoContainer = document.querySelector('#catBreed');
