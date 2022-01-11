@@ -33,6 +33,9 @@ header {
   text-align: center;
   background: var(--primary);
   color: var(--light);
+  font-size: 40px;
+  font-family: fantasy;
+  text-decoration: underline;
 }
 
 main {
@@ -93,9 +96,16 @@ img {
   
 }
 
-.cat-fact {
-  
+.cat-fact-text {
+  color: gray;
+  text-align: center;
 }
+
+#cat-fact-title {
+  color: gray;
+  text-align: center;
+}
+
 
 .painting {
   width: 50%;
