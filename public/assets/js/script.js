@@ -192,21 +192,26 @@ function breedResults() {
       let catInfoContainer = document.querySelector('#catBreed');
       catInfoContainer.appendChild(catName);
 
-      let catDesc = document.createElement("p");
+      let catDesc = document.createElement("li");
       catDesc.innerHTML = data.description;
       catInfoContainer.appendChild(catDesc);
 
-      let catTemp = document.createElement("p");
+      let catTemp = document.createElement("li");
       catTemp.innerHTML = "Temperament: " + data.temperament;
       catInfoContainer.appendChild(catTemp);
 
-      let catHypo = document.createElement("p");
+      let catOrg = document.createElement("li");
+      catOrg.innerHTML = "Origin: " + data.origin;
+      catInfoContainer.appendChild(catOrg);
+
+      let catHypo = document.createElement("li");
       catHypo.innerHTML = "Hypoallergenic: " + data.hypoallergenic;
       catInfoContainer.appendChild(catHypo);
 
-      let catBreedImg = document.getElementById("#catBreedImg");
-      img.src = data.image.url;
-      catInfoContainer.appendChild(catBreedImg);
+      let catBreedImg = document.createElement("img");
+      catBreedImg.src = data.image.url;
+      document.getElementById("#catBreed").appendChild(img);
+      
     }
 
     showResult(data);
