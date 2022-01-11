@@ -198,15 +198,15 @@ var requestOptions = {
 fetch("https://catfact.ninja/fact?limit=1&max_length=140", requestOptions)
     .then(response => response.text())
     .then(result => {
-            console.log(result);
-            showResult = result => {
+        showResult = result => {
+            var catFactSplit = result.split(/[""""""]/);
+            var catFact = catFactSplit[3];
+            console.log(catFact);
             let catFactContainer = document.querySelector('#cat-fact');
-             let catFact = document.createElement('p');
-             catFact.textContent = result;
-             catFactContainer.appendChild(catFact);
-    } 
-    showResult(result);
-})
+            // catFactContainer.appendChild(catFact);
+        }
+        showResult(result);
+    })
 
 
 
