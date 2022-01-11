@@ -29,7 +29,7 @@ app.use(cookieParser());
 // initialize express-session to allow us track the logged-in user across sessions.
 app.use(session({
     key: 'user_sid',
-    secret: 'somerandonstuffs',
+    secret: 'randomcatstuff',
     resave: false,
     saveUninitialized: false,
     cookie: {

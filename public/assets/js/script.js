@@ -126,22 +126,22 @@ function breedResults() {
     var selectedValue = document.getElementById("breed-list").value;
     console.log(selectedValue);
 
-    // fetch(catBreedUrl + catBreedApi)
-    //     .then(function (response) {
-    //         return response.json();
-    //     })
+    fetch(catBreedUrl + catBreedApi)
+        .then(function (response) {
+            return response.json();
+        })
 
-    //     .then(function (data) {
+        .then(function (data) {
 
-    //         for (var i = 0; i < data.length; i++) {
-    //             let catNameEl = data[i].name;
+            for (var i = 0; i < data.length; i++) {
+                let catNameEl = data[i].name;
 
-    //             console.log(catNameEl);
-    //             if (selectedValue = catNameEl) {
-    //                 console.log("match");
-    //             }
-    //         }
-    //     })
+                console.log(catNameEl);
+                if (selectedValue = catNameEl) {
+                    console.log("match");
+                }
+            }
+        })
     //         for (var i = 0; i < data.length; i++) {
     //         let catId = document.createElement("div");
     //         let catDescription = document.createElement("div");
@@ -163,66 +163,26 @@ function breedResults() {
     //  } )
 
 
-    var firstFour = selectedValue.substring(0, 4);
+    // var firstFour = selectedValue.substring(0, 4);
 
-    console.log(firstFour);
+    // if (firstFour === "Amer") {
+    //   return selectedValue.substring(8, 4);
+    // }
+    // console.log(firstFour);
 
 
 
-    var requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
+    // var requestOptions = {
+    //   method: 'GET',
+    //   redirect: 'follow'
+    // };
 
-    fetch("https://api.thecatapi.com/v1/breeds/" + firstFour, requestOptions)
-   .then(function (response) {
-        return response.json();
-    })
+    // fetch("https://api.thecatapi.com/v1/breeds/" + firstFour, requestOptions)
+    //   .then(response => response.text())
+    //   .then(result => console.log(result))
+    //   .catch(error => console.log('error', error));
 
-    .then(function (data) {
-        console.log(data);
-        showResult = data => {
-
-      let catCard = document.createElement("div");
-      catCard.className = "tile is-parent"
-     
-
-      let catName = document.createElement("p");
-      catName.innerHTML = data.name;
-      let catInfoContainer = document.querySelector('#catBreed');
-      catInfoContainer.appendChild(catName);
-
-      let catDesc = document.createElement("li");
-      catDesc.innerHTML = data.description;
-      catInfoContainer.appendChild(catDesc);
-
-      let catTemp = document.createElement("li");
-      catTemp.innerHTML = "Temperament: " + data.temperament;
-      catInfoContainer.appendChild(catTemp);
-
-      let catOrg = document.createElement("li");
-      catOrg.innerHTML = "Origin: " + data.origin;
-      catInfoContainer.appendChild(catOrg);
-
-      let catHypo = document.createElement("li");
-      catHypo.innerHTML = "Hypoallergenic: " + data.hypoallergenic;
-      catInfoContainer.appendChild(catHypo);
-
-      let catBreedImg = document.createElement("img");
-      catBreedImg.src = data.image.url;
-      document.getElementById("#catBreed").appendChild(img);
-      
-    }
-
-    showResult(data);
-
-  })
-
-      
 }
-
-
-
 
 
 var myHeaders = new Headers();
@@ -249,5 +209,6 @@ fetch("https://catfact.ninja/fact?limit=1&max_length=140", requestOptions)
         }
         showResult(result);
     })
+
 
 
