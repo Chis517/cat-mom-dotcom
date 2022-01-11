@@ -1,7 +1,6 @@
 var Sequelize = require('sequelize');
 var bcrypt = require('bcrypt');
 
-
 const sequelize = new Sequelize('ourDatabase', 'root', 'password', {
     host: 'localhost',
     port: 3306,
@@ -12,7 +11,7 @@ const sequelize = new Sequelize('ourDatabase', 'root', 'password', {
         acquire: 30000,
         idle: 10000
     },
-    operatorsAliases: 0
+    operatorsAliases: false
 });
 
 // set up User Table and fields
