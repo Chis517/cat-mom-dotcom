@@ -183,18 +183,26 @@ function breedResults() {
         console.log(data);
         showResult = data => {
 
-      var catCard = document.createElement("span");
-      catCard.className= "box has-background-success-light";
-
-
       let catName = document.createElement("p");
       catName.innerHTML = data.name;
       let catInfoContainer = document.querySelector('#catBreed');
       catInfoContainer.appendChild(catName);
 
+      let catDesc = document.createElement("p");
+      catDesc.innerHTML = data.description;
+      catInfoContainer.appendChild(catDesc);
+
       let catTemp = document.createElement("p");
-      catTemp.innerHTML = data.temperament;
+      catTemp.innerHTML = "Temperament: " + data.temperament;
       catInfoContainer.appendChild(catTemp);
+
+      let catHypo = document.createElement("p");
+      catHypo.innerHTML = "Hypoallergenic: " + data.hypoallergenic;
+      catInfoContainer.appendChild(catHypo);
+
+      let catBreedImg = document.getElementById("#catBreedImg");
+      img.src = data.image.url;
+      catInfoContainer.appendChild(catBreedImg);
     }
 
     showResult(data);
