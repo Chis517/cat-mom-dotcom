@@ -16,7 +16,7 @@ fetch(catGifUrl)
     return response.json();
   })
   .then(function(response) {
-    console.log(response);
+   
 
 for (var i = 0; i < response.length; i++) {
     {
@@ -77,16 +77,12 @@ fetch(catBreedUrl + catBreedApi)
     // get list of names from api and append it to the search bar
     for (var i = 0; i < data.length; i++) {
       let breedName = document.createElement("option");
-      breedName.setAttribute("id", [i]);
+      breedName.setAttribute("id", data[i].id);
       breedName.textContent = data[i].name;
       breedList.appendChild(breedName);
       console.log(breedName);
 
-      breedName.addEventListener("click", function(event){
-        returnCatGif(event.target.id);
-
-        console.log(event);
-      })
+      
     }
 
   });
@@ -128,10 +124,7 @@ fetch(catBreedUrl + catBreedApi)
   function breedResults() {
     var selectedValue = document.getElementById("breed-list").value;
     var firstFour = selectedValue.substring(0, 4)
-    if (firstFour === "Amer") {
-      return selectedValue.substring(8, 4);
-      
-    }
+    
     console.log(firstFour);
     
     
