@@ -1,18 +1,19 @@
 var Sequelize = require('sequelize');
 var bcrypt = require('bcrypt');
+const sequelize = require('../config/connection');
 
-const sequelize = new Sequelize('ourDatabase', 'root', 'password', {
-    host: 'localhost',
-    port: 3306,
-    dialect: 'mysql',
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    },
-    operatorsAliases: false
-});
+// const sequelize = new Sequelize('catmom_db', 'Brandon', 'password', {
+//     host: 'localhost',
+//     port: 3306,
+//     dialect: 'mysql',
+//     pool: {
+//         max: 5,
+//         min: 0,
+//         acquire: 30000,
+//         idle: 10000
+//     },
+//     operatorsAliases: false
+// });
 
 // set up User Table and fields
 var User = sequelize.define('users', {

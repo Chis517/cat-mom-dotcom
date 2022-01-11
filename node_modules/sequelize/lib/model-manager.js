@@ -22,8 +22,12 @@ class ModelManager {
     delete this.sequelize.models[modelToRemove.name];
   }
 
-  getModel(against, { attribute = 'name' } = {}) {
-    return this.models.find(model => model[attribute] === against);
+  getModel(against, options) {
+    options = _.defaults(options || {}, {
+      attribute: 'name'
+    });
+
+    return this.models.find(model => model[options.attribute] === against);
   }
 
   get all() {
@@ -44,10 +48,9 @@ class ModelManager {
     let sorted;
     let dep;
 
-    options = {
-      reverse: true,
-      ...options
-    };
+    options = _.defaults(options || {}, {
+      reverse: true
+    });
 
     for (const model of this.models) {
       let deps = [];

@@ -21,19 +21,11 @@ function addForeignKeyConstraints(newAttribute, source, target, options, key) {
       .map(primaryKeyAttribute => source.rawAttributes[primaryKeyAttribute].field || primaryKeyAttribute);
 
     if (primaryKeys.length === 1 || !primaryKeys.includes(key)) {
-      if (source._schema) {
-        newAttribute.references = {
-          model: source.sequelize.getQueryInterface().QueryGenerator.addSchema({
-            tableName: source.tableName,
-            _schema: source._schema,
-            _schemaDelimiter: source._schemaDelimiter
-          })
-        };
-      } else {
-        newAttribute.references = { model: source.tableName };
-      }
+      newAttribute.references = {
+        model: source.getTableName(),
+        key: key || primaryKeys[0]
+      };
 
-      newAttribute.references.key = key || primaryKeys[0];
       newAttribute.onDelete = options.onDelete;
       newAttribute.onUpdate = options.onUpdate;
     }
@@ -52,7 +44,9 @@ exports.addForeignKeyConstraints = addForeignKeyConstraints;
  * @param {object} aliases Mapping between model and association method names
  *
  */
-function mixinMethods(association, obj, methods, aliases = {}) {
+function mixinMethods(association, obj, methods, aliases) {
+  aliases = aliases || {};
+
   for (const method of methods) {
     // don't override custom methods
     if (!Object.prototype.hasOwnProperty.call(obj, association.accessors[method])) {

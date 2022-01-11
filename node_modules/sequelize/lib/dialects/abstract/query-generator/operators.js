@@ -1,6 +1,8 @@
 'use strict';
 
+const _ = require('lodash');
 const Op = require('../../../operators');
+const Utils = require('../../../utils');
 
 const OperatorHelpers = {
   OperatorMap: {
@@ -40,7 +42,43 @@ const OperatorHelpers = {
     [Op.and]: ' AND ',
     [Op.or]: ' OR ',
     [Op.col]: 'COL',
-    [Op.placeholder]: '$$PLACEHOLDER$$'
+    [Op.placeholder]: '$$PLACEHOLDER$$',
+    [Op.match]: '@@'
+  },
+
+  OperatorsAliasMap: {},
+
+  setOperatorsAliases(aliases) {
+    if (!aliases || _.isEmpty(aliases)) {
+      this.OperatorsAliasMap = false;
+    } else {
+      this.OperatorsAliasMap = { ...aliases };
+    }
+  },
+
+  _replaceAliases(orig) {
+    const obj = {};
+    if (!this.OperatorsAliasMap) {
+      return orig;
+    }
+
+    Utils.getOperators(orig).forEach(op => {
+      const item = orig[op];
+      if (_.isPlainObject(item)) {
+        obj[op] = this._replaceAliases(item);
+      } else {
+        obj[op] = item;
+      }
+    });
+
+    _.forOwn(orig, (item, prop) => {
+      prop = this.OperatorsAliasMap[prop] || prop;
+      if (_.isPlainObject(item)) {
+        item = this._replaceAliases(item);
+      }
+      obj[prop] = item;
+    });
+    return obj;
   }
 };
 

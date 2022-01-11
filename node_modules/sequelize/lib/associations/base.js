@@ -98,6 +98,7 @@ class Association {
 
     /**
      * The type of the association. One of `HasMany`, `BelongsTo`, `HasOne`, `BelongsToMany`
+     *
      * @type {string}
      */
     this.associationType = '';
@@ -128,15 +129,11 @@ class Association {
       const tmpInstance = {};
       tmpInstance[this.target.primaryKeyAttribute] = element;
 
-      return new this.target(tmpInstance, { isNewRecord: false });
+      return this.target.build(tmpInstance, { isNewRecord: false });
     });
   }
 
   [Symbol.for('nodejs.util.inspect.custom')]() {
-    return this.as;
-  }
-
-  inspect() {
     return this.as;
   }
 }
