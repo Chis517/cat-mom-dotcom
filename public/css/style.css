@@ -1,7 +1,7 @@
 :root {
-  --primary: #3d5852;
-  --secondary: #86938f;
-  --tertiary: #5e877f;
+  --primary: #6eac9e;
+  --secondary: #a7b1ae;
+  --tertiary: #90b3ac;
   --quatrinary: #6c6b67;
   --light: #e3e4e3;
   --dark: #182c23;
@@ -33,6 +33,9 @@ header {
   text-align: center;
   background: var(--primary);
   color: var(--light);
+  font-size: 40px;
+  font-family: fantasy;
+  text-decoration: underline;
 }
 
 main {
@@ -90,7 +93,19 @@ nav a:hover {
 img {
   max-width: 100%;
   height: auto;
+  
 }
+
+.cat-fact-text {
+  color: gray;
+  text-align: center;
+}
+
+#cat-fact-title {
+  color: gray;
+  text-align: center;
+}
+
 
 .painting {
   width: 50%;
