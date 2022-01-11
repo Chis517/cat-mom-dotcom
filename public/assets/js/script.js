@@ -202,6 +202,7 @@ fetch("https://catfact.ninja/fact?limit=1&max_length=140", requestOptions)
             var catFactSplit = result.split(/[""""""]/);
             let catFact = document.createElement("p");
             catFact.innerHTML = catFactSplit[3];
+            catFact.className = "cat-fact-text";
             console.log(catFact);
             let catFactContainer = document.querySelector('#cat-fact');
             catFactContainer.appendChild(catFact);
