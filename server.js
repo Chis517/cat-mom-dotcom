@@ -7,6 +7,9 @@ var User = require('./models/user');
 var hbs = require('express-handlebars'); 
 var path = require('path'); 
 
+//Morgan is a HTTP request logger middleware for Node. js. It simplifies the process of logging requests to your application. 
+// You might think of Morgan as a helper that generates request logs. It saves developers time because they don't have to manually create these logs.
+
 
 // invoke an instance of express application.
 var app = express();
@@ -35,9 +38,9 @@ app.use(session({
 }));
 
 // handle bars config
-app.engine('hbs', hbs({extname: 'hbs',defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'})); 
-app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'hbs'); 
+app.set('views', path.join(__dirname, 'views')); 
+app.engine('.hbs', hbs.engine({extname: 'hbs',defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'})); 
 // This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
 // This usually happens when you stop your express server after login, your cookie still remains saved in the browser.
 app.use((req, res, next) => {
@@ -47,7 +50,7 @@ app.use((req, res, next) => {
     next();
 });
 
-var hbsContent = {userName: '', loggedin: false, title: "You are not logged in today", body: "Hello World"}; 
+var hbsContent = {userName: '', loggedin: false, title: "You are not logged in today", body: "Hello Cat Fans"}; 
 
 // middleware function to check for logged-in users
 var sessionChecker = (req, res, next) => {
@@ -74,7 +77,7 @@ app.route('/signup')
     .post((req, res) => {
         User.create({
             username: req.body.username,
-            //email: req.body.email,
+            email: req.body.email,
             password: req.body.password
         })
         .then(user => {
@@ -105,7 +108,8 @@ app.route('/login')
                 req.session.user = user.dataValues;
                 res.redirect('/dashboard');
             }
-        });
+        })
+        .catch(error => console.log('Error has occured here.'));
     });
 
 // route for user's dashboard
