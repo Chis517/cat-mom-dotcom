@@ -16,7 +16,7 @@ fetch(catGifUrl)
     return response.json();
   })
   .then(function(response) {
-   
+    console.log(response);
 
 for (var i = 0; i < response.length; i++) {
     {
@@ -35,26 +35,7 @@ for (var i = 0; i < response.length; i++) {
   })
 
 
-// function returnBreedGif() {
 
-//   var gifByBreed = data[i].id
-//   var breedUrl = "https://api.thecatapi.com/v1/images/search?breed_id=" + gifByBreed;
-
-//   fetch(breedUrl)
-//   .then(function(response){
-// if (response.ok){
-//   return response.json()
-
-//   .then(function(data) {
-//     console.log(data);
-//   })
-// }
-// else {
-//   alert("fetch error");
-// }
-//   }
-  
-//   )}
 
 
 function returnCatBreed() {
