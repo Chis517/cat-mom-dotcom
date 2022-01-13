@@ -3,8 +3,28 @@ let catGifUrl = "https://api.thecatapi.com/v1/images/search?mime_types=gif";
 let catBreedApi = "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244";
 let catBreedUrl = "https://api.thecatapi.com/v1/breeds?";
 let breedList = document.getElementById("breed-list");
+let breedImgContainer = document.getElementById("breedImg");
+let breedInfoContainer = document.getElementById("breedInfo");
 
+gifBtn.addEventListener('click', returnCatGif);
+factBtn.addEventListener('click', returnCatFact);
 
+// function to display a random cat fact 
+function returnCatFact() {
+    factContainer.textContent = ''
+    fetch(catFactUrl, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            showResult = result => {
+                var catFactSplit = result.split(/[""""""]/);
+                let catFact = document.createElement("p");
+                catFact.innerHTML = catFactSplit[3];
+                catFact.className = "cat-fact-text";
+                factContainer.appendChild(catFact);
+            }
+            showResult(result);
+        });
+};
 
 // return cat pictures from cat gif api
 
@@ -64,8 +84,7 @@ function returnCatBreed() {
     myHeaders.append("x-api-key", "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244");
 }
 
-
-// return breed information from catApi
+// calls the catAPI to display breed names in the drop down
 fetch(catBreedUrl + catBreedApi)
     .then(function (response) {
         return response.json();
@@ -81,15 +100,35 @@ fetch(catBreedUrl + catBreedApi)
             breedNameEl.setAttribute("id", data[i].name);
             breedNameEl.textContent = data[i].name;
             breedList.appendChild(breedNameEl);
-            console.log(breedNameEl);
-
-            breedNameEl.addEventListener("click", function (event) {
-                returnCatGif(event.target.id);
-
-                console.log(event);
-            })
         }
     });
+
+// function that gets clicked cat breed from the drop down
+// function getCatBreed() {
+//     var selectedBreed = breedList.value
+//     displayCatBreed(selectedBreed)
+// };
+
+// function to display cat breed information by click
+// function displayCatBreed(breed) {
+//     breedImgContainer.textContent = ''
+//     breedInfoContainer.textContent = ''
+//     fetch(catBreedUrl + catBreedApi)
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (data) {
+//         console.log(data);
+        
+//             var breedImg = document.createElement('img')
+//             breedImg.setAttribute("style", "width:450px; height:450px; ");
+//             breedImg.setAttribute('src', 'https://cdn2.thecatapi.com/images/' + data.reference_image_id + '.jpg');
+//             breedImgContainer.appendChild(breedImg);
+
+            
+    
+//     });
+// };
 
 
 
@@ -122,26 +161,36 @@ fetch(catBreedUrl + catBreedApi)
 
 //results based on breed
 
-function breedResults() {
-    var selectedValue = document.getElementById("breed-list").value;
+function displayCatBreed() {
+    var selectedValue = document.getElementById("breed-list").value
     console.log(selectedValue);
 
+    breedImgContainer.textContent = ''
+    breedInfoContainer.textContent = ''
     fetch(catBreedUrl + catBreedApi)
         .then(function (response) {
             return response.json();
         })
 
         .then(function (data) {
+            console.log(data);
 
             for (var i = 0; i < data.length; i++) {
-                let catNameEl = data[i].name;
-
-                console.log(catNameEl);
-                if (selectedValue = catNameEl) {
-                    console.log("match");
-                }
+            var breedImg = document.createElement('img')
+            breedImg.setAttribute("style", "width:450px; height:450px; ");
+            breedImg.setAttribute('src', 'https://cdn2.thecatapi.com/images/' + data[i].reference_image_id + '.jpg');
+            breedImgContainer.appendChild(breedImg);
             }
         })
+    
+        //     for (var i = 0; i < data.length; i++) {
+        //         let catNameEl = data[i].name;
+
+        //         // if (selectedValue = catNameEl) {
+        //         //     console.log("match");
+        //         // }
+        //     }
+        // })
     //         for (var i = 0; i < data.length; i++) {
     //         let catId = document.createElement("div");
     //         let catDescription = document.createElement("div");
@@ -181,7 +230,6 @@ function breedResults() {
     //   .then(response => response.text())
     //   .then(result => console.log(result))
     //   .catch(error => console.log('error', error));
-
 }
 
 

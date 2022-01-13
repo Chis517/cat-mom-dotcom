@@ -8,27 +8,19 @@
             <h1>CatMomDotCom</h1>
         </div>
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/public/signup">Sign Up</a></li>
-                        <li><a href="/dashboard">Dashboard</a></li>
-                    </ul>
+        <button id="gifBtn">Generate Random Gif!</button>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/login">Log In</a></li>
-                        <li><a href="/logout">Log Out</a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
+        <br>
 
-        <div class="container row">
-           <h1>Hi, Welcome to your CatMomDotCom Dashboard</h1>
-           <!-- Enter code here to add in API information, drop down bar with information and area for card/catinfo/etc.  -->
+        <div class="control has-icons-left">
+            <div class="select is-primary">
+                <select id="breed-list" onchange="displayCatBreed();">
+                    <option value="Select Breed">Select Breed</option>
+                </select>
+            </div>
+            <div class="icon is-small is-left">
+                <i class="fas fa-cat"></i>
+            </div>
         </div>
     </body>
 </html>
