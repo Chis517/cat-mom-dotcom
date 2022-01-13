@@ -13,6 +13,9 @@ let breedInfoContainer = document.getElementById("breedInfo");
 
 gifBtn.addEventListener('click', returnCatGif);
 factBtn.addEventListener('click', returnCatFact);
+// breedNameEl.addEventListener("click", function (event) {
+//     returnCatGif(event.target.id);
+// })
 
 // function to display a random cat fact 
 function returnCatFact() {
@@ -61,7 +64,7 @@ function returnCatBreed() {
     myHeaders.append("x-api-key", "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244");
 };
 
-// calls the catAPI to display breed names in the drop down
+// return breed names from catAPI
 fetch(catBreedUrl + catBreedApi)
     .then(function (response) {
         return response.json();
@@ -75,35 +78,30 @@ fetch(catBreedUrl + catBreedApi)
             breedNameEl.setAttribute("id", data[i].name);
             breedNameEl.textContent = data[i].name;
             breedList.appendChild(breedNameEl);
+            console.log(breedNameEl);
         }
     });
 
-// function that gets clicked cat breed from the drop down
-// function getCatBreed() {
-//     var selectedBreed = breedList.value
-//     displayCatBreed(selectedBreed)
-// };
-
 // function to display cat breed information by click
-// function displayCatBreed(breed) {
-//     breedImgContainer.textContent = ''
-//     breedInfoContainer.textContent = ''
-//     fetch(catBreedUrl + catBreedApi)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//         console.log(data);
+function displayCatBreed() {
+    breedImgContainer.textContent = ''
+    breedInfoContainer.textContent = ''
+    fetch(catBreedUrl + catBreedApi)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+        console.log(data);
         
-//             var breedImg = document.createElement('img')
-//             breedImg.setAttribute("style", "width:450px; height:450px; ");
-//             breedImg.setAttribute('src', 'https://cdn2.thecatapi.com/images/' + data.reference_image_id + '.jpg');
-//             breedImgContainer.appendChild(breedImg);
-
-            
-    
-//     });
-// };
+        
+        for (var i = 0; i < data.length; i++) {
+            var breedImg = document.createElement('img')
+                breedImg.setAttribute("style", "width:450px; height:450px; ");
+                breedImg.setAttribute('src', data.image);
+                breedImgContainer.appendChild(breedImg);
+        }
+    });
+};
 
 
 
@@ -136,36 +134,26 @@ fetch(catBreedUrl + catBreedApi)
 
 // results based on breed
 
-function displayCatBreed() {
-    var selectedValue = document.getElementById("breed-list").value
+function breedResults() {
+    var selectedValue = document.getElementById("breed-list").value;
     console.log(selectedValue);
 
-    breedImgContainer.textContent = ''
-    breedInfoContainer.textContent = ''
     fetch(catBreedUrl + catBreedApi)
         .then(function (response) {
             return response.json();
         })
 
         .then(function (data) {
-            console.log(data);
 
             for (var i = 0; i < data.length; i++) {
-            var breedImg = document.createElement('img')
-            breedImg.setAttribute("style", "width:450px; height:450px; ");
-            breedImg.setAttribute('src', 'https://cdn2.thecatapi.com/images/' + data[i].reference_image_id + '.jpg');
-            breedImgContainer.appendChild(breedImg);
+                let catNameEl = data[i].name;
+
+                console.log(catNameEl);
+                // if (selectedValue = catNameEl) {
+                //     console.log("match");
+                // }
             }
         })
-    
-        //     for (var i = 0; i < data.length; i++) {
-        //         let catNameEl = data[i].name;
-
-        //         // if (selectedValue = catNameEl) {
-        //         //     console.log("match");
-        //         // }
-        //     }
-        // })
     //         for (var i = 0; i < data.length; i++) {
     //         let catId = document.createElement("div");
     //         let catDescription = document.createElement("div");
@@ -205,6 +193,7 @@ function displayCatBreed() {
     //   .then(response => response.text())
     //   .then(result => console.log(result))
     //   .catch(error => console.log('error', error));
+
 }
 
 
