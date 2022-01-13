@@ -13,12 +13,10 @@ let breedInfoContainer = document.getElementById("breedInfo");
 
 gifBtn.addEventListener('click', returnCatGif);
 factBtn.addEventListener('click', returnCatFact);
-<<<<<<< HEAD
-=======
+
 // breedNameEl.addEventListener("click", function (event) {
 //     returnCatGif(event.target.id);
 // })
->>>>>>> parent of 084ba49 (Revert "code refactor, random gif/fact html/js")
 
 // function to display a random cat fact 
 function returnCatFact() {
@@ -65,15 +63,15 @@ function returnCatBreed() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("x-api-key", "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244");
-<<<<<<< HEAD
+
 }
 
 // calls the catAPI to display breed names in the drop down
-=======
-};
+
+
 
 // return breed names from catAPI
->>>>>>> parent of 084ba49 (Revert "code refactor, random gif/fact html/js")
+
 fetch(catBreedUrl + catBreedApi)
     .then(function (response) {
         return response.json();
@@ -87,8 +85,6 @@ fetch(catBreedUrl + catBreedApi)
             breedNameEl.setAttribute("id", data[i].name);
             breedNameEl.textContent = data[i].name;
             breedList.appendChild(breedNameEl);
-<<<<<<< HEAD
-=======
             console.log(breedNameEl);
         }
     });
@@ -110,10 +106,36 @@ function displayCatBreed() {
                 breedImg.setAttribute("style", "width:450px; height:450px; ");
                 breedImg.setAttribute('src', data.image);
                 breedImgContainer.appendChild(breedImg);
->>>>>>> parent of 084ba49 (Revert "code refactor, random gif/fact html/js")
         }
     });
 };
+
+// function that gets clicked cat breed from the drop down
+// function getCatBreed() {
+//     var selectedBreed = breedList.value
+//     displayCatBreed(selectedBreed)
+// };
+
+// function to display cat breed information by click
+// function displayCatBreed(breed) {
+//     breedImgContainer.textContent = ''
+//     breedInfoContainer.textContent = ''
+//     fetch(catBreedUrl + catBreedApi)
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (data) {
+//         console.log(data);
+        
+//             var breedImg = document.createElement('img')
+//             breedImg.setAttribute("style", "width:450px; height:450px; ");
+//             breedImg.setAttribute('src', 'https://cdn2.thecatapi.com/images/' + data.reference_image_id + '.jpg');
+//             breedImgContainer.appendChild(breedImg);
+
+            
+    
+//     });
+// };
 
 // function that gets clicked cat breed from the drop down
 // function getCatBreed() {
@@ -188,19 +210,18 @@ function displayCatBreed() {
             console.log(data);
 
             for (var i = 0; i < data.length; i++) {
-<<<<<<< HEAD
+
             var breedImg = document.createElement('img')
             breedImg.setAttribute("style", "width:450px; height:450px; ");
             breedImg.setAttribute('src', 'https://cdn2.thecatapi.com/images/' + data[i].reference_image_id + '.jpg');
             breedImgContainer.appendChild(breedImg);
-=======
                 let catNameEl = data[i].name;
 
                 console.log(catNameEl);
                 // if (selectedValue = catNameEl) {
                 //     console.log("match");
                 // }
->>>>>>> parent of 084ba49 (Revert "code refactor, random gif/fact html/js")
+
             }
         })
     
