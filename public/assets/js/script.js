@@ -64,37 +64,51 @@ function breedResults() {
       method: 'GET',
       redirect: 'follow'
     };
-    fetch("https://api.thecatapi.com/v1/breeds/" + selectedValue, requestOptions)
+    fetch("https://api.thecatapi.com/v1/images/search?breed_ids=" + selectedValue, requestOptions)
    .then(function (response) {
         return response.json();
     })
     .then(function (data) {
         console.log(data);
         showResult = data => {
+            for (var i = 0; i < data.length; i++) {
       let catCard = document.createElement("div");
       catCard.className = "tile is-parent"
      
       let catName = document.createElement("p");
-      catName.innerHTML = data.name;
+      catName.innerHTML = data[i].breeds[i].name;
+
       let catInfoContainer = document.querySelector('#catBreed');
       catInfoContainer.appendChild(catName);
+      
       let catDesc = document.createElement("li");
-      catDesc.innerHTML = data.description;
+      catDesc.innerHTML = data[i].breeds[i].description;
       catInfoContainer.appendChild(catDesc);
+      
       let catTemp = document.createElement("li");
-      catTemp.innerHTML = "Temperament: " + data.temperament;
+      catTemp.innerHTML = "Temperament: " + data[i].breeds[i].temperament;
       catInfoContainer.appendChild(catTemp);
+      
       let catOrg = document.createElement("li");
-      catOrg.innerHTML = "Origin: " + data.origin;
+      catOrg.innerHTML = "Origin: " + data[i].breeds[i].origin;
       catInfoContainer.appendChild(catOrg);
+      
       let catHypo = document.createElement("li");
-      catHypo.innerHTML = "Hypoallergenic: " + data.hypoallergenic;
+      catHypo.innerHTML = "Hypoallergenic: " + data[i].breeds[i].hypoallergenic;
       catInfoContainer.appendChild(catHypo);
+      
       let catBreedImg = document.createElement("img");
-      catBreedImg.src = data.image.url;
-      document.getElementById("#catBreed").appendChild(img);
+      catBreedImg.src = data[i].url;
+      catBreedImg.setAttribute("style","width:200px; hight:200px; ");
+      catInfoContainer.appendChild(catBreedImg)
+
+      
+     
+     
+     petCard.appendChild(img);
       
     }
+}
     showResult(data);
   })
       
