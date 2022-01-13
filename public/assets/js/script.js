@@ -47,7 +47,10 @@ fetch(catBreedUrl + catBreedApi)
             breedNameEl.textContent = data[i].name;
             breedList.appendChild(breedNameEl);
             console.log(breedNameEl);
-            
+            breedNameEl.addEventListener("click", function (event) {
+                returnCatGif(event.target.id);
+                console.log(event);
+            })
         }
     });
 
@@ -55,6 +58,7 @@ fetch(catBreedUrl + catBreedApi)
 function breedResults() {
     var selectedValue = document.getElementById("breed-list").value;
     console.log(selectedValue);
+    
 
     var requestOptions = {
       method: 'GET',
@@ -92,7 +96,6 @@ function breedResults() {
       
     }
     showResult(data);
-    
   })
       
 };
