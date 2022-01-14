@@ -76,10 +76,16 @@ function breedResults() {
       catCard.className = "tile is-parent"
      
       let catName = document.createElement("p");
+      catName.className = "has-text-centered is-size-2"
       catName.innerHTML = data[i].breeds[i].name;
 
       let catInfoContainer = document.querySelector('#catBreed');
       catInfoContainer.appendChild(catName);
+
+      let catBreedImg = document.createElement("img");
+      catBreedImg.src = data[i].url;
+      catBreedImg.className = "image is-4by3 mb-3 pt-3 pb-3"
+      catInfoContainer.appendChild(catBreedImg)
       
       let catDesc = document.createElement("li");
       catDesc.innerHTML = data[i].breeds[i].description;
@@ -97,10 +103,7 @@ function breedResults() {
       catHypo.innerHTML = "Hypoallergenic: " + data[i].breeds[i].hypoallergenic;
       catInfoContainer.appendChild(catHypo);
       
-      let catBreedImg = document.createElement("img");
-      catBreedImg.src = data[i].url;
-      catBreedImg.setAttribute("style","width:200px; hight:200px; ");
-      catInfoContainer.appendChild(catBreedImg)
+      
 
       
      
