@@ -12,10 +12,12 @@
   ## Table of Contents
 
   * [Installation](#Installation)
+  * [API](#api)
   * [Usage](#usage)
   * [License](#license)
   * [Technologies](#technologies)
   * [Future Development](#future-development)
+  * [Contributors](#contributors)
   * [Questions](#questions)
  
 
@@ -25,7 +27,9 @@
 * It is recommended that you delete the node modules and package.json to troubleshoot any errors, then npm install
 * Run mysql and source db/schema.sql
   
- 
+ ## API
+ [The Cat API documentation] (https://docs.thecatapi.com/)
+
   ## Usage
 
  ![visuals]()
@@ -57,7 +61,9 @@
 * Implementing a forum for cat owners to talk
 * Adding in more information like the petfinder api for potential adoption, purina api for cat food, nationwide pet insurance information api, etc. 
 
+## Contributors
 
+Brandon Conte, Jess Varghese, Christian Ouimet, Erica Misiorski
 
 ## Questions
   If you have any questions about the repo, open and issue:
