@@ -23,6 +23,8 @@ app.use(morgan('dev'));
 // initialize body-parser to parse incoming parameters requests to req.body
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 // initialize cookie-parser to allow us access the cookies stored in the browser. 
 app.use(cookieParser());
 

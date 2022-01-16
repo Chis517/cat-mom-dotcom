@@ -1,3 +1,35 @@
-	 <div class="container row">
-           <h1>Hi, Welcome to your Dashboard</h1>
+<div class="row">
+	<div class="container text-center" id="cat-fact">
+		<h1 id="cat-fact-title">Cat Fact</h1>
 	</div>
+</div>
+
+<br>
+<div id="cat-pic" class="row">
+	<div class="container-fluid" id="catGif"></div>
+</div>
+
+<br>
+<div class="row">
+	<div class="container">
+		<div class="control">
+			<div id="breed-button" class="select">
+				<select id="breed-list" onchange="breedResults()">
+					<option value="Select Breed">Select Breed</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" id="breed-info">
+	<div class="container bg-warning">
+		<article class="notification">
+			<h1 id="breed-title" class="title">Cat Breed Info</h1>
+			<figure id="catBreed">
+			</figure>
+		</article>
+	</div>
+</div>
+
+<script src="/javascript/script.js"></script>

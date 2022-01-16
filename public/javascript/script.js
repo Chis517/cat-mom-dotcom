@@ -22,6 +22,7 @@ fetch(catGifUrl)
                 var catImg = document.createElement('img');
                 catImg.setAttribute("style", "width:450px; hight:450px; ");
                 catImg.setAttribute('src', response[i].url);
+                catImg.className = "cat-gif";
                 //   Append 'catImg' to the <div>
                 responseContainerEl.appendChild(catImg);
             }
@@ -128,9 +129,9 @@ fetch("https://catfact.ninja/fact?limit=1&max_length=140", requestOptions)
             var catFactSplit = result.split(/[""""""]/);
             let catFact = document.createElement("p");
             catFact.innerHTML = catFactSplit[3];
-            catFact.className = "cat-fact-text";
+            catFact.className = "cat-fact-display";
             console.log(catFact);
-            let catFactContainer = document.querySelector('#cat-fact');
+            let catFactContainer = document.querySelector("#cat-fact");
             catFactContainer.appendChild(catFact);
         }
         showResult(result);
