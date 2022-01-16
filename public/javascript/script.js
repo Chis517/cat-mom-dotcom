@@ -14,6 +14,7 @@ fetch(catGifUrl)
         return response.json();
     })
     .then(function (response) {
+        console.log(response);
         for (var i = 0; i < response.length; i++) {
             {
                 var responseContainerEl = document.querySelector('#catGif');
@@ -45,6 +46,7 @@ fetch(catBreedUrl + catBreedApi)
             breedNameEl.setAttribute("value", data[i].id);
             breedNameEl.textContent = data[i].name;
             breedList.appendChild(breedNameEl);
+            console.log(breedNameEl);
             breedNameEl.addEventListener("click", function (event) {
                 returnCatGif(event.target.id);
                 console.log(event);
@@ -56,57 +58,63 @@ fetch(catBreedUrl + catBreedApi)
 function breedResults() {
     var selectedValue = document.getElementById("breed-list").value;
     console.log(selectedValue);
-
+    
 
     var requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
+      method: 'GET',
+      redirect: 'follow'
     };
     fetch("https://api.thecatapi.com/v1/images/search?breed_ids=" + selectedValue, requestOptions)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            showResult = data => {
-                for (var i = 0; i < data.length; i++) {
-                    let catCard = document.createElement("div");
-                    catCard.className = "tile is-parent"
+   .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        showResult = data => {
+            for (var i = 0; i < data.length; i++) {
+      let catCard = document.createElement("div");
+      catCard.className = "tile is-parent"
+     
+      let catName = document.createElement("p");
+      catName.className = "has-text-centered is-size-2"
+      catName.innerHTML = data[i].breeds[i].name;
 
-                    let catName = document.createElement("p");
-                    catName.className = "has-text-centered is-size-2"
-                    catName.innerHTML = data[i].breeds[i].name;
+      let catInfoContainer = document.querySelector('#catBreed');
+      catInfoContainer.appendChild(catName);
 
-                    let catInfoContainer = document.querySelector('#catBreed');
-                    catInfoContainer.appendChild(catName);
+      let catBreedImg = document.createElement("img");
+      catBreedImg.src = data[i].url;
+      catBreedImg.className = "image is-4by3 mb-3 pt-3 pb-3"
+      catInfoContainer.appendChild(catBreedImg)
+      
+      let catDesc = document.createElement("li");
+      catDesc.innerHTML = data[i].breeds[i].description;
+      catInfoContainer.appendChild(catDesc);
+      
+      let catTemp = document.createElement("li");
+      catTemp.innerHTML = "Temperament: " + data[i].breeds[i].temperament;
+      catInfoContainer.appendChild(catTemp);
+      
+      let catOrg = document.createElement("li");
+      catOrg.innerHTML = "Origin: " + data[i].breeds[i].origin;
+      catInfoContainer.appendChild(catOrg);
+      
+      let catHypo = document.createElement("li");
+      catHypo.innerHTML = "Hypoallergenic: " + data[i].breeds[i].hypoallergenic;
+      catInfoContainer.appendChild(catHypo);
+      
+      
 
-                    let catBreedImg = document.createElement("img");
-                    catBreedImg.src = data[i].url;
-                    catBreedImg.className = "image is-4by3 mb-3 pt-3 pb-3"
-                    catInfoContainer.appendChild(catBreedImg)
-
-                    let catDesc = document.createElement("li");
-                    catDesc.innerHTML = data[i].breeds[i].description;
-                    catInfoContainer.appendChild(catDesc);
-
-                    let catTemp = document.createElement("li");
-                    catTemp.innerHTML = "Temperament: " + data[i].breeds[i].temperament;
-                    catInfoContainer.appendChild(catTemp);
-
-                    let catOrg = document.createElement("li");
-                    catOrg.innerHTML = "Origin: " + data[i].breeds[i].origin;
-                    catInfoContainer.appendChild(catOrg);
-
-                    let catHypo = document.createElement("li");
-                    catHypo.innerHTML = "Hypoallergenic: " + data[i].breeds[i].hypoallergenic;
-                    catInfoContainer.appendChild(catHypo);
-
-                    catCard.appendChild(img);
-
-                }
-            }
-            showResult(data);
-        })
-
+      
+     
+     
+     petCard.appendChild(img);
+      
+    }
+}
+    showResult(data);
+  })
+      
 };
 
 
@@ -127,6 +135,7 @@ fetch("https://catfact.ninja/fact?limit=1&max_length=140", requestOptions)
             let catFact = document.createElement("p");
             catFact.innerHTML = catFactSplit[3];
             catFact.className = "cat-fact-text";
+            console.log(catFact);
             let catFactContainer = document.querySelector('#cat-fact');
             catFactContainer.appendChild(catFact);
         }
