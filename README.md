@@ -24,7 +24,7 @@
   ## Installation
   gh repo clone Chis517/cat-mom-dotcom.git
 
-* It is recommended that you delete the node modules and package.json to troubleshoot any errors, then npm install
+* It is recommended that you delete the node modules to troubleshoot any errors, then npm install
 * Run mysql and source db/schema.sql
   
  ## API
