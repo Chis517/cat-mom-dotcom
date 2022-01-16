@@ -64,37 +64,54 @@ function breedResults() {
       method: 'GET',
       redirect: 'follow'
     };
-    fetch("https://api.thecatapi.com/v1/breeds/" + selectedValue, requestOptions)
+    fetch("https://api.thecatapi.com/v1/images/search?breed_ids=" + selectedValue, requestOptions)
    .then(function (response) {
         return response.json();
     })
     .then(function (data) {
         console.log(data);
         showResult = data => {
+            for (var i = 0; i < data.length; i++) {
       let catCard = document.createElement("div");
       catCard.className = "tile is-parent"
      
       let catName = document.createElement("p");
-      catName.innerHTML = data.name;
+      catName.className = "has-text-centered is-size-2"
+      catName.innerHTML = data[i].breeds[i].name;
+
       let catInfoContainer = document.querySelector('#catBreed');
       catInfoContainer.appendChild(catName);
-      let catDesc = document.createElement("li");
-      catDesc.innerHTML = data.description;
-      catInfoContainer.appendChild(catDesc);
-      let catTemp = document.createElement("li");
-      catTemp.innerHTML = "Temperament: " + data.temperament;
-      catInfoContainer.appendChild(catTemp);
-      let catOrg = document.createElement("li");
-      catOrg.innerHTML = "Origin: " + data.origin;
-      catInfoContainer.appendChild(catOrg);
-      let catHypo = document.createElement("li");
-      catHypo.innerHTML = "Hypoallergenic: " + data.hypoallergenic;
-      catInfoContainer.appendChild(catHypo);
+
       let catBreedImg = document.createElement("img");
-      catBreedImg.src = data.image.url;
-      document.getElementById("#catBreed").appendChild(img);
+      catBreedImg.src = data[i].url;
+      catBreedImg.className = "image is-4by3 mb-3 pt-3 pb-3"
+      catInfoContainer.appendChild(catBreedImg)
+      
+      let catDesc = document.createElement("li");
+      catDesc.innerHTML = data[i].breeds[i].description;
+      catInfoContainer.appendChild(catDesc);
+      
+      let catTemp = document.createElement("li");
+      catTemp.innerHTML = "Temperament: " + data[i].breeds[i].temperament;
+      catInfoContainer.appendChild(catTemp);
+      
+      let catOrg = document.createElement("li");
+      catOrg.innerHTML = "Origin: " + data[i].breeds[i].origin;
+      catInfoContainer.appendChild(catOrg);
+      
+      let catHypo = document.createElement("li");
+      catHypo.innerHTML = "Hypoallergenic: " + data[i].breeds[i].hypoallergenic;
+      catInfoContainer.appendChild(catHypo);
+      
+      
+
+      
+     
+     
+     petCard.appendChild(img);
       
     }
+}
     showResult(data);
   })
       
