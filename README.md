@@ -13,7 +13,7 @@
 
   * [Installation](#Installation)
   * [API](#api)
-  * [Usage](#usage)
+  * [Visuals](#usage)
   * [License](#license)
   * [Technologies](#technologies)
   * [Future Development](#future-development)
@@ -28,11 +28,12 @@
 * Run mysql and source db/schema.sql
   
  ## API
- [The Cat API documentation] (https://docs.thecatapi.com/)
+ [The Cat API documentation](https://docs.thecatapi.com/)
 
-  ## Usage
+ ## Visuals
 
- ![visuals]()
+ <img src="./assets/login.png" width="500"/>
+ <img src="./assets/cat_homepage.png" width="500"/>
 
   ## License
   This project operates under the [MIT](https://choosealicense.com/licenses/MIT/) license.
