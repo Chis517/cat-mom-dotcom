@@ -3,6 +3,8 @@ let catGifUrl = "https://api.thecatapi.com/v1/images/search?mime_types=gif";
 let catBreedApi = "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244";
 let catBreedUrl = "https://api.thecatapi.com/v1/breeds?";
 let breedList = document.getElementById("breed-list");
+let catInfoContainer = document.querySelector('#catBreed');
+
 // return cat pictures from cat gif api
 function returnCatGif() {
     var myHeaders = new Headers();
@@ -59,11 +61,11 @@ function breedResults() {
     var selectedValue = document.getElementById("breed-list").value;
     console.log(selectedValue);
     
-
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
+    catInfoContainer.textContent = ''
     fetch("https://api.thecatapi.com/v1/images/search?breed_ids=" + selectedValue, requestOptions)
    .then(function (response) {
         return response.json();
@@ -77,10 +79,7 @@ function breedResults() {
      
       let catName = document.createElement("p");
       catName.className = "has-text-centered is-size-2"
-      catName.innerHTML = data[i].breeds[i].name;
-
-      let catInfoContainer = document.querySelector('#catBreed');
-      catInfoContainer.appendChild(catName);
+      catName.innerHTML = data[i].breeds[i].name;      
 
       let catBreedImg = document.createElement("img");
       catBreedImg.src = data[i].url;
