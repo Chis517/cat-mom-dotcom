@@ -15,6 +15,7 @@
   * [Usage](#usage)
   * [License](#license)
   * [Technologies](#technologies)
+  * [Future Development](#future-development)
   * [Questions](#questions)
  
 
@@ -51,7 +52,13 @@
  * Javascript
 
 
+## Future Development
+* Creating a profile page for each user and their cat
+* Implementing a forum for cat owners to talk
+* Adding in more information like the petfinder api for potential adoption, purina api for cat food, nationwide pet insurance information api, etc. 
 
-  ## Questions
+
+
+## Questions
   If you have any questions about the repo, open and issue:
   * Github: https://github.com/Chis517/cat-mom-dotcom
