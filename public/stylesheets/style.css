@@ -177,6 +177,8 @@ img {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  padding: 10px;
+  border-radius: 5px;
 }
 #cat-fact {
   background-color: white;
@@ -197,4 +199,9 @@ img {
 }
 #cat-pic {
   align-items: center;
+}
+#breed-list {
+  background-color:rgb(49, 47, 47);
+  color: rgb(241, 241, 229);
+  text-align: center;
 }
