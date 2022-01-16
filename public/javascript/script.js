@@ -24,6 +24,7 @@ fetch(catGifUrl)
                 var catImg = document.createElement('img');
                 catImg.setAttribute("style", "width:450px; hight:450px; ");
                 catImg.setAttribute('src', response[i].url);
+                catImg.className = "cat-gif";
                 //   Append 'catImg' to the <div>
                 responseContainerEl.appendChild(catImg);
             }
@@ -65,6 +66,7 @@ function breedResults() {
       method: 'GET',
       redirect: 'follow'
     };
+  
     catInfoContainer.textContent = ''
     fetch("https://api.thecatapi.com/v1/images/search?breed_ids=" + selectedValue, requestOptions)
    .then(function (response) {
@@ -79,7 +81,10 @@ function breedResults() {
      
       let catName = document.createElement("p");
       catName.className = "has-text-centered is-size-2"
-      catName.innerHTML = data[i].breeds[i].name;      
+      catName.innerHTML = data[i].breeds[i].name;
+
+      let catInfoContainer = document.querySelector('#catBreed');
+      catInfoContainer.appendChild(catName);
 
       let catBreedImg = document.createElement("img");
       catBreedImg.src = data[i].url;
@@ -101,11 +106,7 @@ function breedResults() {
       let catHypo = document.createElement("li");
       catHypo.innerHTML = "Hypoallergenic: " + data[i].breeds[i].hypoallergenic;
       catInfoContainer.appendChild(catHypo);
-      
-      
 
-      
-     
      
      petCard.appendChild(img);
       
@@ -113,7 +114,6 @@ function breedResults() {
 }
     showResult(data);
   })
-      
 };
 
 
@@ -133,9 +133,10 @@ fetch("https://catfact.ninja/fact?limit=1&max_length=140", requestOptions)
             var catFactSplit = result.split(/[""""""]/);
             let catFact = document.createElement("p");
             catFact.innerHTML = catFactSplit[3];
-            catFact.className = "cat-fact-text";
+            catFact.className = "cat-fact-display";
             console.log(catFact);
-            let catFactContainer = document.querySelector('#cat-fact');
+            let catFactContainer = document.querySelector("#cat-fact");
+
             catFactContainer.appendChild(catFact);
         }
         showResult(result);

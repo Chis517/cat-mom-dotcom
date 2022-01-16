@@ -1,31 +1,35 @@
-<div class="box is-centered is-white" id="cat-fact">
-	<h1 id="cat-fact-title">Cat Fact</h1>
-</div>
-<div class="container" id="catPic"></div>
-<div class="container" id="catGif"></div>
-<br>
-<br>
-<div class="container is-centered">
-	<div class="control has-icons-left">
-		<div class="select is-primary">
-			<select id="breed-list" onchange="breedResults()">
-				<option value="Select Breed">Select Breed</option>
-			</select>
-		</div>
-
-		<div class="icon is-small is-left">
-			<i class="fas fa-cat"></i>
-		</div>
-
+<div class="row">
+	<div class="container text-center" id="cat-fact">
+		<h1 id="cat-fact-title">Cat Fact</h1>
 	</div>
 </div>
 
-<div class="tile is-parent">
-	<article class="tile is-child notification has-background-warning">
-		<p class="title has-text-centered">Cat Breed Info</p>
-		<figure id="catBreed">
-		</figure>
-	</article>
+<br>
+<div id="cat-pic" class="row">
+	<div class="container" id="catGif"></div>
+</div>
+
+<br>
+<div class="row">
+	<div class="container">
+		<div class="control">
+			<div id="breed-button" class="select">
+				<select id="breed-list" onchange="breedResults()">
+					<option value="Select Breed">Select Breed</option>
+				</select>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" id="breed-info">
+	<div class="container bg-warning">
+		<article class="notification">
+			<h1 id="breed-title" class="title">Cat Breed Info</h1>
+			<figure id="catBreed">
+			</figure>
+		</article>
+	</div>
 </div>
 
 <script src="/javascript/script.js"></script>

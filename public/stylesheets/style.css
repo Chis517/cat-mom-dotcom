@@ -17,6 +17,7 @@ body {
   min-height: 100vh;
   justify-content: flex-start;
   background-color: var(--quatrinary);
+  align-items: center;
 }
 
 a {
@@ -35,13 +36,13 @@ header {
   color: var(--light);
   font-size: 40px;
   font-family: fantasy;
-  text-decoration: underline;
 }
 
 main {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
+  text-align: center;
 }
 
 aside {
@@ -93,7 +94,7 @@ nav a:hover {
 img {
   max-width: 100%;
   height: auto;
-  
+  align-content: center;
 }
 
 .cat-fact-text {
@@ -174,6 +175,32 @@ img {
 .container {
   display: flex;
   flex-flow: column wrap;
-  align-content: flex-start;
   align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+#cat-fact {
+  background-color: white;
+  text-align: center;
+}
+
+#breed-button {
+  align-items: center;
+}
+#cat-fact-container {
+  text-align: center;
+}
+#breed-info {
+  text-align: center;
+}
+#breed-title {
+  text-align: center;
+}
+#cat-pic {
+  align-items: center;
+}
+#breed-list {
+  background-color:rgb(49, 47, 47);
+  color: rgb(241, 241, 229);
+  text-align: center;
 }
