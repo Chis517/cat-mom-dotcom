@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,9 +21,19 @@
   },
   "homepage": "https://github.com/Chis517/cat-mom-dotcom#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cataas-api": "^1.1.2",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
-    "mysql2": "^2.3.3",
-    "sequelize": "^7.0.0-alpha.4"
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "hbs": "^4.2.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "requirejs": "^2.3.6",
+    "sequelize": "^6.3.5",
+    "wkx": "^0.5.0"
   }
 }

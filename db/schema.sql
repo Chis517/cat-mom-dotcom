@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS catmom_db;
+
+CREATE DATABASE catmom_db;
