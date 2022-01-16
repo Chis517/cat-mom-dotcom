@@ -1,10 +1,10 @@
-# CatMomDotCom
+# CatMom DotCom
 
   [![badge](https://img.shields.io/badge/License-MIT-yellow.svg)]((https://opensource.org/licenses/MIT))
   
   ## Description
 
-  Who doesn’t love GIFs of cute cuddly cats? CatMom Dot Com is a site intended for a user to login to view random cat GIFs, facts and get specific info on a particular breed of cat.
+  Who doesn’t love GIFs of cute cuddly cats? CatMom DotCom is a site intended for a user to login to view random cat GIFs, facts and get specific info on a particular breed of cat.
 
 
 [Deployed application](https://github.com/Chis517/cat-mom-dotcom)
@@ -47,7 +47,7 @@
  * sequelize
  * HTML
  * CSS
- * BULM
+ * BULMA
  * Boostrap
  * Javascript
 
