@@ -3,6 +3,8 @@ let catGifUrl = "https://api.thecatapi.com/v1/images/search?mime_types=gif";
 let catBreedApi = "a41b1fc9-3c83-4302-a5d5-4f2c67c5c244";
 let catBreedUrl = "https://api.thecatapi.com/v1/breeds?";
 let breedList = document.getElementById("breed-list");
+let catInfoContainer = document.querySelector('#catBreed');
+
 // return cat pictures from cat gif api
 function returnCatGif() {
     var myHeaders = new Headers();
@@ -60,11 +62,12 @@ function breedResults() {
     var selectedValue = document.getElementById("breed-list").value;
     console.log(selectedValue);
     
-
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
+  
+    catInfoContainer.textContent = ''
     fetch("https://api.thecatapi.com/v1/images/search?breed_ids=" + selectedValue, requestOptions)
    .then(function (response) {
         return response.json();
@@ -103,6 +106,7 @@ function breedResults() {
       let catHypo = document.createElement("li");
       catHypo.innerHTML = "Hypoallergenic: " + data[i].breeds[i].hypoallergenic;
       catInfoContainer.appendChild(catHypo);
+
      
      petCard.appendChild(img);
       
@@ -132,6 +136,7 @@ fetch("https://catfact.ninja/fact?limit=1&max_length=140", requestOptions)
             catFact.className = "cat-fact-display";
             console.log(catFact);
             let catFactContainer = document.querySelector("#cat-fact");
+
             catFactContainer.appendChild(catFact);
         }
         showResult(result);
