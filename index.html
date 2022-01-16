@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,26 +9,21 @@
     <link rel="stylesheet" href="public/css/style.css">
     <title>Cat-mom-dotcom</title>
 </head>
-
 <body>
     <header>Cat Mom Dot Com</header>
-
     <div class="box is-centered is-white" id="cat-fact">
         <h1 id="cat-fact-title">Cat Fact</h1>
     </div>
-
     <div class="container" id="catPic">
     </div>
-
     <div class="container" id="catGif">
     </div>
     <br>
     <br>
-
     <div class="container is-centered">
         <div class="control has-icons-left">
             <div class="select is-primary">
-                <select id="breed-list" onchange="breedResults();">
+                <select id="breed-list" onchange="breedResults()">
                     <option value="Select Breed">Select Breed</option>
                 </select>
             </div>
@@ -38,14 +32,13 @@
             </div>
         </div>
     </div>
-
-    <div id="catImg" class="container">
-
-    </div>
-
-
-
+    <div class="tile is-parent">
+        <article class="tile is-child notification has-background-warning">
+          <p class="title has-text-centered">Cat Breed Info</p>
+          <figure id="catBreed">
+          </figure>
+        </article>
+      </div>
     <script src="public/assets/js/script.js"></script>
 </body>
-
 </html>
