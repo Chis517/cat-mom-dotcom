@@ -15,7 +15,7 @@ var path = require('path');
 var app = express();
 
 // set our application port
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 59225;
 
 // set morgan to log info about our requests for development use.
 app.use(morgan('dev'));
