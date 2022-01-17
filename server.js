@@ -15,7 +15,7 @@ var path = require('path');
 var app = express();
 
 // set our application port
-app.set('port', 3001);
+const PORT = process.env.PORT || 3001;
 
 // set morgan to log info about our requests for development use.
 app.use(morgan('dev'));
@@ -149,3 +149,7 @@ app.use(function (req, res, next) {
 
 // start the express server
 app.listen(app.get('port'), () => console.log(`App started on port ${app.get('port')}`));
+
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+  });
