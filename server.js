@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3001;
 app.use(morgan('dev'));
 
 // initialize body-parser to parse incoming parameters requests to req.body
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
