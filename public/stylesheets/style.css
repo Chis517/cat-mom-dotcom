@@ -97,17 +97,6 @@ img {
   align-content: center;
 }
 
-.cat-fact-text {
-  color: gray;
-  text-align: center;
-}
-
-#cat-fact-title {
-  color: gray;
-  text-align: center;
-}
-
-
 .painting {
   width: 50%;
   background-color: white;
@@ -179,28 +168,44 @@ img {
   padding: 10px;
   border-radius: 5px;
 }
-#cat-fact {
+
+#cat-container {
   background-color: white;
   text-align: center;
+}
+
+#title {
+  color: gray;
+  text-align: center;
+}
+
+#cat-fact {
+  color: gray;
+  text-align: center;
+}
+
+#factBtn {
+  align-items: center;
+}
+
+#cat-pic {
+  align-items: center;
+}
+
+#gifBtn {
+  align-items: center;
 }
 
 #breed-button {
   align-items: center;
 }
-#cat-fact-container {
-  text-align: center;
-}
-#breed-info {
-  text-align: center;
-}
-#breed-title {
-  text-align: center;
-}
-#cat-pic {
-  align-items: center;
-}
+
 #breed-list {
   background-color:rgb(49, 47, 47);
   color: rgb(241, 241, 229);
+  text-align: center;
+}
+
+#breed-info {
   text-align: center;
 }
